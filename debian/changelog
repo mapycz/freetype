@@ -1,0 +1,5 @@
+szn-freetype (2.8.2) Seznam; urgency=medium
+
+  * szn debian packaging
+
+ -- Jiri Drbalek <jiri.drbalek@firma.seznam.cz>  Fri, 30 Jun 2017 11:10:36 +0000
