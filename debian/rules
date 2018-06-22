@@ -4,14 +4,18 @@
 # version 2 or later for copying conditions.  There is NO warranty.
 
 %:
-	dh $@
+	dh $@ --with autoreconf --parallel
+
+override_dh_autoreconf:
+	./autogen.sh
+
+configure_flags += \
+    --prefix=/opt/szn/freetype \
+    --enable-freetype-config \
+    --with-pic \
+    --enable-shared=yes \
+    --enable-static=yes \
+    --with-png=yes
 
 override_dh_auto_configure:
-	./autogen.sh
-	dh_auto_configure -- \
-		--with-pic \
-		--enable-shared=yes \
-		--enable-static=yes \
-		--with-png=yes \
-		--without-bzip2 \
-		--without-harfbuzz
+	dh_auto_configure -- $(configure_flags)
